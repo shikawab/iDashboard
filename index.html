@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+    <title>Weather Dashboard</title>
+
+</head>
+
+<body>
+
+<!-- Top Row -->
+
+<div class="top-row">
+
+    <!-- Judgement -->
+
+    <div class="judgement-wrapper">
+
+        <div class="card judgement-card">
+
+            <h2>Judgement</h2>
+
+            <h1 id="judgement-icon">
+                🟢
+            </h1>
+
+            <p
+                class="status-text"
+                id="judgement-status"
+            >
+                Normal Operation
+            </p>
+
+            <div class="judgement-footer">
+
+                <p
+                    class="reason-text"
+                    id="judgement-reason"
+                >
+                    No Active Alerts
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="update-section">
+
+            <div class="update-label">
+                Updated
+            </div>
+
+            <div id="datetime">
+                --
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Current Weather -->
+
+    <div class="card current-weather-card">
+
+        <h2>Current Weather</h2>
+
+        <h1 id="weather-icon">
+            ☀️
+        </h1>
+
+        <div
+            id="weather-temp"
+            class="weather-temp"
+        >
+            --
+        </div>
+
+        <div
+            id="weather-condition"
+            class="weather-condition"
+        >
+            Loading...
+        </div>
+
+        <div class="weather-details">
+
+            <div id="weather-feels">
+                --
+            </div>
+
+            <div id="weather-wind">
+                --
+            </div>
+
+        </div>
+
+    </div>
+
+<!-- Hourly Forecast -->
+
+<div class="card hourly-forecast-card">
+
+    <h2>Hourly Forecast</h2>
+
+    <div
+        id="hourly-container"
+        class="hourly-grid"
+    >
+
+        Loading...
+
+    </div>
+
+    <div class="chart-wrapper">
+
+        <div
+            id="temp-scale"
+            class="temp-scale"
+        >
+
+            <div id="temp-max">
+                --
+            </div>
+
+            <div id="temp-mid">
+                --
+            </div>
+
+            <div id="temp-min">
+                --
+            </div>
+
+        </div>
+
+        <svg
+            id="temp-chart"
+            viewBox="0 0 600 120"
+            preserveAspectRatio="none"
+        >
+
+            <line
+                x1="0"
+                y1="20"
+                x2="600"
+                y2="20"
+                class="chart-grid"
+            />
+
+            <line
+                x1="0"
+                y1="60"
+                x2="600"
+                y2="60"
+                class="chart-grid"
+            />
+
+            <line
+                x1="0"
+                y1="100"
+                x2="600"
+                y2="100"
+                class="chart-grid"
+            />
+
+            <polygon
+                id="temp-fill"
+                fill="rgba(255,255,255,0.12)"
+                points=""
+            ></polygon>
+
+            <polyline
+                id="temp-line"
+                fill="none"
+                stroke="white"
+                stroke-width="4"
+                points=""
+            />
+
+            <g id="temp-points"></g>
+
+        </svg>
+
+    </div>
+
+    <div class="humidity-section">
+
+        <div class="humidity-title">
+            💧 Humidity
+        </div>
+
+        <div
+            id="humidity-container"
+            class="humidity-grid"
+        >
+        </div>
+
+    </div>
+
+</div>
+<!-- Hourly Forecast終了 -->
+
+<div class="side-column">
+
+    <div class="card heat-card">
+
+        <h2>Heat Index</h2>
+
+        <div
+            id="heat-value"
+            class="side-value"
+        >
+            --
+        </div>
+
+        <div
+            id="heat-status"
+            class="side-status"
+        >
+            Loading...
+        </div>
+
+    </div>
+
+    <div class="card aqi-card">
+
+        <h2>AQI</h2>
+
+        <div
+            id="aqi-value"
+            class="side-value"
+        >
+            --
+        </div>
+
+        <div
+            id="aqi-status"
+            class="side-status"
+        >
+            Loading...
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+<!-- top-row終了 -->
+
+<!-- Weather Alerts -->
+
+<div class="card weather-card">
+
+    <div id="alert-level-bar"></div>
+
+    <h2>Weather Alerts</h2>
+
+    <div
+        id="alert-summary"
+        class="alert-summary"
+    >
+        --
+    </div>
+
+    <div
+        id="alert-icons"
+        class="alert-icons"
+    >
+    </div>
+
+    <ul id="weather-alerts">
+
+        <li>No alerts</li>
+
+    </ul>
+
+</div>
+
+    <!-- Transportation -->
+
+    <div class="card transportation-card">
+
+        <h2>Transportation Information</h2>
+
+        <p>JR East : Normal Operation</p>
+
+        <p>Yokohama Subway : Normal Operation</p>
+
+        <p>Sotetsu : Normal Operation</p>
+
+        <p>Tokyu : Normal Operation</p>
+
+        <p>Keikyu : Normal Operation</p>
+
+    </div>
+
+    <!-- Forecast -->
+
+    <div class="card forecast-card">
+
+        <h2>Weekly Forecast</h2>
+
+        <p>☀️ ☀️ ☁️ 🌧️ ☀️ ☀️ ☁️</p>
+
+    </div>
+
+    <!-- Earthquake -->
+
+    <div class="card earthquake-card">
+
+        <h2>Earthquake Information</h2>
+
+        <p>No Earthquake Information</p>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

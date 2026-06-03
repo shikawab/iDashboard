@@ -1,0 +1,833 @@
+body {
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "SF Pro Display",
+        sans-serif;
+
+    padding: 20px;
+
+    min-height: 100vh;
+
+    margin: 0;
+
+    transition:
+        background 2s ease;
+}
+
+
+/* ---------- レイアウト ---------- */
+
+.top-row {
+
+    display: flex;
+
+    gap: 20px;
+
+    align-items: stretch;
+
+    margin-bottom: 20px;
+
+}
+
+.judgement-wrapper {
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+/* ---------- 共通カード ---------- */
+
+.card {
+
+    background: rgba(
+        255,
+        255,
+        255,
+        0.28
+    );
+
+    backdrop-filter: blur(24px);
+
+    -webkit-backdrop-filter:
+        blur(24px);
+
+    border:
+        1px solid rgba(
+            255,
+            255,
+            255,
+            0.4
+        );
+
+    border-radius: 40px;
+
+    box-shadow:
+        0 8px 32px rgba(
+            0,
+            0,
+            0,
+            0.08
+        ),
+        inset 0 1px 0 rgba(
+            255,
+            255,
+            255,
+            0.5
+        );
+
+    transition: all 0.3s ease;
+
+    padding: 24px;
+}
+
+.card:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 12px 40px rgba(
+            0,
+            0,
+            0,
+            0.12
+        ),
+        inset 0 1px 0 rgba(
+            255,
+            255,
+            255,
+            0.6
+        );
+}
+
+
+/* ---------- Judgement ---------- */
+
+.judgement-card {
+
+    width: 450px;
+
+    height: 390px;
+
+    background:
+        rgba(
+            28,
+            28,
+            30,
+            0.78
+        );
+
+    backdrop-filter: blur(30px);
+
+    -webkit-backdrop-filter:
+        blur(30px);
+
+    color: #f5f5f7;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+.judgement-card h1 {
+
+    font-size: 5rem;
+
+    margin: 20px 0;
+}
+
+.status-text {
+
+    font-size: 1.6rem;
+
+    font-weight: 600;
+
+    margin-bottom: 0;
+}
+
+.reason-text {
+
+    color: #c7c7cc;
+
+    font-size: 1rem;
+
+    margin-top: 10px;
+
+    min-height: 24px;
+}
+
+.judgement-footer {
+
+    margin-top: auto;
+
+    border-top:
+        1px solid rgba(
+            255,
+            255,
+            255,
+            0.15
+        );
+
+    padding-top: 20px;
+}
+
+
+/* ---------- Status Colors ---------- */
+
+.status-green {
+
+    color: #8fd694;
+}
+
+.status-yellow {
+
+    color: #ffd166;
+}
+
+.status-red {
+
+    color: #ff6b6b;
+}
+
+
+/* ---------- Updated ---------- */
+
+.update-section {
+
+    margin-top: 8px;
+
+    margin-left: 16px;
+}
+
+.update-label {
+
+    color: #8e8e93;
+
+    font-size: 0.9rem;
+}
+
+#datetime {
+
+    color: #c7c7cc;
+
+    font-size: 1rem;
+}
+
+
+/* ---------- Current Weather ---------- */
+
+.current-weather-card {
+
+    width: 300px;
+
+    height: 390px;
+
+    background:
+        rgba(
+            28,
+            28,
+            30,
+            0.78
+        );
+
+    backdrop-filter: blur(30px);
+
+    -webkit-backdrop-filter:
+        blur(30px);
+
+    color: #f5f5f7;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+#weather-icon {
+
+    font-size: 5rem;
+
+    margin: 10px 0;
+}
+
+.weather-temp {
+
+    font-size: 4rem;
+
+    font-weight: 700;
+
+    margin-top: 20px;
+}
+
+.weather-condition {
+
+    color: #c7c7cc;
+
+    font-size: 1.1rem;
+
+    margin-top: 10px;
+}
+
+
+/* ---------- Information Cards ---------- */
+
+.weather-card,
+.transportation-card,
+.forecast-card,
+.earthquake-card {
+
+    margin-bottom: 20px;
+
+    color: #1d1d1f;
+}
+
+
+/* ---------- Weather Alerts ---------- */
+
+.weather-card ul {
+
+    list-style: none;
+
+    padding-left: 0;
+}
+
+.weather-card li {
+
+    margin: 12px 0;
+
+    font-size: 1.05rem;
+}
+
+
+/* ---------- Alert Icons ---------- */
+
+.weather-card i {
+
+    width: 24px;
+
+    margin-right: 10px;
+}
+
+.fa-water {
+
+    color: #0a84ff;
+}
+
+.fa-bolt {
+
+    color: #ffd60a;
+}
+
+.fa-cloud-rain {
+
+    color: #64d2ff;
+}
+
+.fa-wind {
+
+    color: #30d158;
+}
+
+.fa-mountain {
+
+    color: #ff9f0a;
+}
+
+.fa-house-flood-water {
+
+    color: #5ac8fa;
+}
+
+.fa-tornado {
+
+    color: #ff453a;
+}
+
+
+/* ---------- Typography ---------- */
+
+h2 {
+
+    margin-top: 0;
+
+    font-size: 2rem;
+
+    font-weight: 700;
+}
+
+p,
+li {
+
+    line-height: 1.7;
+}
+
+.weather-details {
+
+    margin-top: auto;
+
+    border-top:
+        1px solid rgba(
+            255,
+            255,
+            255,
+            0.15
+        );
+
+    padding-top: 20px;
+
+    color: #c7c7cc;
+
+    font-size: 0.95rem;
+}
+
+.weather-details div {
+
+    margin-bottom: 8px;
+}
+
+.hourly-forecast-card {
+
+    width: 650px;
+
+    flex: 0 0 650px;
+
+    min-height: 390px;
+
+    height: 390px;
+
+    background: rgba(28,28,30,0.78);
+
+    backdrop-filter: blur(30px);
+
+    -webkit-backdrop-filter: blur(30px);
+
+    color: #f5f5f7;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+.hourly-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(6, 1fr);
+
+    gap: 0;
+
+    margin-top: 8px;
+
+    margin-bottom: 8px;
+
+    width: 100%;
+}
+
+.hourly-grid {
+
+    position: relative;
+
+}
+
+.hour-item {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 4px;
+
+    text-align: center;
+}
+
+.hour-item {
+
+    text-align: center;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+}
+
+.hour-item {
+
+    width: 100%;
+
+}
+
+.hour-time {
+
+    font-size: 0.75rem;
+
+    color: #c7c7cc;
+}
+
+.hour-icon {
+
+    font-size: 1.4rem;
+
+    margin: 10px 0;
+}
+
+.hour-temp {
+
+    font-size: 1rem;
+
+    font-weight: 600;
+}
+
+#temp-chart {
+
+    width: 100px;
+
+    height: 110px;
+
+    margin: 0 auto;
+
+}
+
+.chart-grid {
+
+    stroke: rgba(
+        255,
+        255,
+        255,
+        0.12
+    );
+
+    stroke-width: 1;
+
+    stroke-dasharray: 4 4;
+
+}
+
+#temp-line {
+
+    filter:
+        drop-shadow(
+            0 0 8px
+            rgba(
+                255,
+                255,
+                255,
+                0.4
+            )
+        );
+}
+
+.chart-wrapper {
+
+    display: flex;
+
+    align-items: stretch;
+
+    margin-top: 0;
+}
+
+.temp-scale {
+
+    width: 40px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    color: rgba(
+        255,
+        255,
+        255,
+        0.75
+    );
+
+    font-size: 0.8rem;
+
+    font-weight: 500;
+
+    margin-right: 4px;
+}
+
+#temp-chart {
+
+    flex: 1;
+}
+
+.temp-point {
+
+    fill: white;
+
+    stroke: rgba(
+        255,
+        255,
+        255,
+        0.35
+    );
+
+    stroke-width: 3;
+}
+
+.temp-point {
+
+    vector-effect:
+
+        non-scaling-stroke;
+
+}
+
+#temp-fill {
+
+    opacity: 0.45;
+}
+
+#temp-line {
+
+    filter:
+        drop-shadow(
+            0 0 8px
+            rgba(
+                255,
+                255,
+                255,
+                0.4
+            )
+        );
+}
+
+.hour-rain {
+
+    color: #64d2ff;
+
+    font-size: 0.85rem;
+
+    font-weight: 600;
+}
+
+.humidity-section {
+
+    margin-top: 4px;
+
+    padding-top: 6px;
+
+    border-top:
+        1px solid rgba(
+            255,
+            255,
+            255,
+            0.12
+        );
+}
+
+.humidity-title {
+
+    color: #64d2ff;
+
+    font-size: 0.9rem;
+
+    font-weight: 600;
+
+    margin-bottom: 10px;
+}
+
+.humidity-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(6, 1fr);
+
+    text-align: center;
+}
+
+.humidity-item {
+
+    color: rgba(
+        255,
+        255,
+        255,
+        0.8
+    );
+
+    font-size: 0.9rem;
+
+    font-weight: 600;
+}
+
+.humidity-section {
+
+    margin-top: 16px;
+
+    padding-top: 12px;
+
+    border-top:
+
+        1px solid rgba(
+
+            255,
+
+            255,
+
+            255,
+
+            0.12
+
+        );
+
+}
+
+.humidity-grid {
+
+    display: grid;
+
+    grid-template-columns:
+
+        repeat(6, 1fr);
+
+    text-align: center;
+
+    margin-top: 8px;
+
+}
+
+.humidity-item {
+
+    color: #64d2ff;
+
+    font-size: 0.9rem;
+
+    font-weight: 600;
+
+}
+
+.side-column {
+
+    width: 220px;
+
+    flex: 0 0 220px;
+
+    height: 441px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+}
+
+.heat-card,
+.aqi-card {
+
+    flex: 1;
+    height: 200px;
+
+    background:
+        rgba(
+            28,
+            28,
+            30,
+            0.78
+        );
+
+    backdrop-filter: blur(30px);
+
+    color: #f5f5f7;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+.side-value {
+
+    font-size: 3rem;
+
+    font-weight: 700;
+
+    margin-top: auto;
+}
+
+.side-status {
+
+    color: #c7c7cc;
+
+    margin-top: 8px;
+}
+
+.heat-card,
+.aqi-card {
+
+    width: 100%;
+}
+
+.alert-summary {
+
+    font-size: 1rem;
+
+    font-weight: 600;
+
+    margin-bottom: 16px;
+
+}
+
+.weather-card li {
+
+    margin: 12px 0;
+
+    font-size: 1.05rem;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+}
+
+.alert-icons {
+
+    display: flex;
+
+    justify-content: flex-start;
+
+    gap: 40px;
+
+    margin: 16px 0 24px 0;
+
+    font-size: 5rem;
+
+}
+
+/* ---------- Alert Status Bar ---------- */
+
+#alert-level-bar {
+
+    height: 8px;
+
+    width: 100%;
+
+    border-radius: 999px;
+
+    background: #30D158;
+
+    margin-bottom: 20px;
+
+    transition: all 0.4s ease;
+
+    box-shadow:
+        0 0 12px rgba(
+            255,
+            255,
+            255,
+            0.25
+        );
+
+}
