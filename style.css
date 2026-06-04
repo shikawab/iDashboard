@@ -831,3 +831,67 @@ li {
         );
 
 }
+
+@media (max-width: 1200px) {
+
+    .top-row {
+
+        flex-wrap: wrap;
+
+    }
+
+    .hourly-forecast-card {
+
+        width: 100%;
+
+        flex: 1 1 100%;
+
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    body {
+
+        padding: 12px;
+
+    }
+
+    .top-row {
+
+        flex-direction: column;
+
+    }
+
+    .judgement-card,
+    .current-weather-card,
+    .hourly-forecast-card,
+    .side-column {
+
+        width: 100%;
+
+        flex: none;
+
+    }
+
+    .judgement-card,
+    .current-weather-card {
+
+        height: auto;
+
+    }
+
+    .hourly-forecast-card {
+
+        height: auto;
+
+    }
+
+    .side-column {
+
+        height: auto;
+
+    }
+
+}
