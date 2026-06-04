@@ -864,16 +864,15 @@ li {
 
     }
 
-    .judgement-card,
-    .current-weather-card,
-    .hourly-forecast-card,
-    .side-column {
+    .weather-card,
+.transportation-card,
+.forecast-card,
+.earthquake-card {
 
-        width: 100%;
+    width: auto;
+    max-width: 100%;
 
-        flex: none;
-
-    }
+}
 
     .judgement-card,
     .current-weather-card {
