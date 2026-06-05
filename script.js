@@ -54,10 +54,6 @@ function setBackgroundByTime() {
 // Elements
 // --------------------
 
-const datetimeElement =
-    document.getElementById(
-        "datetime"
-    );
 
 const weatherList =
     document.getElementById(
@@ -258,6 +254,18 @@ async function getWarningData() {
 
             datetimeElement.textContent =
                 data.reportDateTime;
+            
+            const headerDatetime =
+    document.getElementById(
+        "header-datetime"
+    );
+
+if (headerDatetime) {
+
+    headerDatetime.textContent =
+        data.reportDateTime;
+
+}
         }
 
         const eastArea =
@@ -1090,7 +1098,7 @@ async function getHeatIndex() {
 // Run
 // --------------------
 
-setBackgroundByTime();
+//setBackgroundByTime();
 
 getWarningData();
 

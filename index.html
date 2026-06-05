@@ -2,337 +2,375 @@
 <html lang="ja">
 
 <head>
+<meta charset="UTF-8">
 
-    <meta charset="UTF-8">
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+<title>iDash.</title>
 
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
-
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    >
-
-    <title>Weather Dashboard</title>
-
+<link
+    rel="stylesheet"
+    href="style.css"
+>
 </head>
 
 <body>
 
-<!-- Top Row -->
+<!-- =========================
+     Dashboard Header
+========================== -->
 
-<div class="top-row">
+<header class="dashboard-header">
 
-    <!-- Judgement -->
+    <div class="dashboard-title">
 
-    <div class="judgement-wrapper">
+        <h1>iDash.</h1>
 
-        <div class="card judgement-card">
+        <p class="dashboard-subtitle">
+            Protect Yourself
+        </p>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     Main Dashboard
+========================== -->
+
+<main>
+
+    <div class="top-row">
+
+        <!-- Judgement -->
+
+        <section class="card judgement-card">
 
             <h2>Judgement</h2>
 
-            <h1 id="judgement-icon">
+            <div
+                id="judgement-icon"
+                class="judgement-icon"
+            >
                 🟢
-            </h1>
+            </div>
 
-            <p
-                class="status-text"
+            <div
                 id="judgement-status"
+                class="status-text"
             >
                 Normal Operation
-            </p>
+            </div>
 
             <div class="judgement-footer">
 
                 <p
-                    class="reason-text"
                     id="judgement-reason"
+                    class="reason-text"
                 >
                     No Active Alerts
                 </p>
 
             </div>
 
-        </div>
+        </section>
 
-        <div class="update-section">
 
-            <div class="update-label">
-                Updated
+        <!-- Current Weather -->
+
+        <section class="card current-weather-card">
+
+            <h2>Current Weather</h2>
+
+            <div
+                id="weather-icon"
+                class="weather-icon"
+            >
+                ☀️
             </div>
 
-            <div id="datetime">
+            <div
+                id="weather-temp"
+                class="weather-temp"
+            >
                 --
             </div>
+
+            <div
+                id="weather-condition"
+                class="weather-condition"
+            >
+                Loading...
+            </div>
+
+            <div class="weather-details">
+
+                <div id="weather-feels">
+                    --
+                </div>
+
+                <div id="weather-wind">
+                    --
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Hourly Forecast -->
+
+        <section class="card hourly-forecast-card">
+
+            <h2>Hourly Forecast</h2>
+
+            <div
+                id="hourly-container"
+                class="hourly-grid"
+            >
+                Loading...
+            </div>
+
+            <div class="chart-wrapper">
+
+                <div
+                    id="temp-scale"
+                    class="temp-scale"
+                >
+
+                    <div id="temp-max">--</div>
+                    <div id="temp-mid">--</div>
+                    <div id="temp-min">--</div>
+
+                </div>
+
+                <svg
+                    id="temp-chart"
+                    viewBox="0 0 600 120"
+                    preserveAspectRatio="none"
+                >
+
+                    <line
+                        x1="0"
+                        y1="20"
+                        x2="600"
+                        y2="20"
+                        class="chart-grid"
+                    />
+
+                    <line
+                        x1="0"
+                        y1="60"
+                        x2="600"
+                        y2="60"
+                        class="chart-grid"
+                    />
+
+                    <line
+                        x1="0"
+                        y1="100"
+                        x2="600"
+                        y2="100"
+                        class="chart-grid"
+                    />
+
+                    <polygon
+                        id="temp-fill"
+                        fill="rgba(255,255,255,0.25)"
+                        points=""
+                    ></polygon>
+
+                    <polyline
+                        id="temp-line"
+                        points=""
+                    ></polyline>
+
+                    <g id="temp-points"></g>
+
+                </svg>
+
+            </div>
+
+            <div class="humidity-section">
+
+                <div class="humidity-title">
+                    💧 Humidity
+                </div>
+
+                <div
+                    id="humidity-container"
+                    class="humidity-grid"
+                >
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Side Column -->
+
+        <div class="side-column">
+
+            <section class="card heat-card">
+
+                <h2>Heat Index</h2>
+
+                <div
+                    id="heat-value"
+                    class="side-value"
+                >
+                    --
+                </div>
+
+                <div
+                    id="heat-status"
+                    class="side-status"
+                >
+                    Loading...
+                </div>
+
+            </section>
+
+            <section class="card aqi-card">
+
+                <h2>AQI</h2>
+
+                <div
+                    id="aqi-value"
+                    class="side-value"
+                >
+                    --
+                </div>
+
+                <div
+                    id="aqi-status"
+                    class="side-status"
+                >
+                    Loading...
+                </div>
+
+            </section>
 
         </div>
 
     </div>
 
-    <!-- Current Weather -->
 
-    <div class="card current-weather-card">
+    <!-- Weather Alerts -->
 
-        <h2>Current Weather</h2>
+    <section class="card weather-card">
 
-        <h1 id="weather-icon">
-            ☀️
-        </h1>
+        <div id="alert-level-bar"></div>
+
+        <h2>Weather Alerts</h2>
 
         <div
-            id="weather-temp"
-            class="weather-temp"
+            id="alert-summary"
+            class="alert-summary"
         >
             --
         </div>
 
         <div
-            id="weather-condition"
-            class="weather-condition"
-        >
-            Loading...
-        </div>
-
-        <div class="weather-details">
-
-            <div id="weather-feels">
-                --
-            </div>
-
-            <div id="weather-wind">
-                --
-            </div>
-
-        </div>
-
-    </div>
-
-<!-- Hourly Forecast -->
-
-<div class="card hourly-forecast-card">
-
-    <h2>Hourly Forecast</h2>
-
-    <div
-        id="hourly-container"
-        class="hourly-grid"
-    >
-
-        Loading...
-
-    </div>
-
-    <div class="chart-wrapper">
-
-        <div
-            id="temp-scale"
-            class="temp-scale"
-        >
-
-            <div id="temp-max">
-                --
-            </div>
-
-            <div id="temp-mid">
-                --
-            </div>
-
-            <div id="temp-min">
-                --
-            </div>
-
-        </div>
-
-        <svg
-            id="temp-chart"
-            viewBox="0 0 600 120"
-            preserveAspectRatio="none"
-        >
-
-            <line
-                x1="0"
-                y1="20"
-                x2="600"
-                y2="20"
-                class="chart-grid"
-            />
-
-            <line
-                x1="0"
-                y1="60"
-                x2="600"
-                y2="60"
-                class="chart-grid"
-            />
-
-            <line
-                x1="0"
-                y1="100"
-                x2="600"
-                y2="100"
-                class="chart-grid"
-            />
-
-            <polygon
-                id="temp-fill"
-                fill="rgba(255,255,255,0.12)"
-                points=""
-            ></polygon>
-
-            <polyline
-                id="temp-line"
-                fill="none"
-                stroke="white"
-                stroke-width="4"
-                points=""
-            />
-
-            <g id="temp-points"></g>
-
-        </svg>
-
-    </div>
-
-    <div class="humidity-section">
-
-        <div class="humidity-title">
-            💧 Humidity
-        </div>
-
-        <div
-            id="humidity-container"
-            class="humidity-grid"
+            id="alert-icons"
+            class="alert-icons"
         >
         </div>
 
-    </div>
+        <ul id="weather-alerts">
 
-</div>
-<!-- Hourly Forecast終了 -->
+            <li>No alerts</li>
 
-<div class="side-column">
+        </ul>
 
-    <div class="card heat-card">
+    </section>
 
-        <h2>Heat Index</h2>
-
-        <div
-            id="heat-value"
-            class="side-value"
-        >
-            --
-        </div>
-
-        <div
-            id="heat-status"
-            class="side-status"
-        >
-            Loading...
-        </div>
-
-    </div>
-
-    <div class="card aqi-card">
-
-        <h2>AQI</h2>
-
-        <div
-            id="aqi-value"
-            class="side-value"
-        >
-            --
-        </div>
-
-        <div
-            id="aqi-status"
-            class="side-status"
-        >
-            Loading...
-        </div>
-
-    </div>
-
-</div>
-
-</div>
-<!-- top-row終了 -->
-
-<!-- Weather Alerts -->
-
-<div class="card weather-card">
-
-    <div id="alert-level-bar"></div>
-
-    <h2>Weather Alerts</h2>
-
-    <div
-        id="alert-summary"
-        class="alert-summary"
-    >
-        --
-    </div>
-
-    <div
-        id="alert-icons"
-        class="alert-icons"
-    >
-    </div>
-
-    <ul id="weather-alerts">
-
-        <li>No alerts</li>
-
-    </ul>
-
-</div>
 
     <!-- Transportation -->
 
-    <div class="card transportation-card">
+    <section class="card transportation-card">
 
         <h2>Transportation Information</h2>
 
         <p>JR East : Normal Operation</p>
-
         <p>Yokohama Subway : Normal Operation</p>
-
         <p>Sotetsu : Normal Operation</p>
-
         <p>Tokyu : Normal Operation</p>
-
         <p>Keikyu : Normal Operation</p>
 
-    </div>
+    </section>
 
-    <!-- Forecast -->
 
-    <div class="card forecast-card">
+    <!-- Weekly Forecast -->
+
+    <section class="card forecast-card">
 
         <h2>Weekly Forecast</h2>
 
-        <p>☀️ ☀️ ☁️ 🌧️ ☀️ ☀️ ☁️</p>
+        <p>
+            ☀️ ☀️ ☁️ 🌧️ ☀️ ☀️ ☁️
+        </p>
 
-    </div>
+    </section>
+
 
     <!-- Earthquake -->
 
-    <div class="card earthquake-card">
+    <section class="card earthquake-card">
 
         <h2>Earthquake Information</h2>
 
-        <p>No Earthquake Information</p>
+        <p>
+            No Earthquake Information
+        </p>
+
+    </section>
+
+</main>
+
+
+<!-- =========================
+     Footer
+========================== -->
+
+<footer class="dashboard-footer">
+
+    <div class="footer-section">
+
+        <div class="meta-label">
+            Last Updated
+        </div>
+
+        <div id="header-datetime">
+            --
+        </div>
 
     </div>
 
-    <script src="script.js"></script>
+    <div class="footer-section">
+
+        <div class="meta-label">
+            Source
+        </div>
+
+        <div>
+            Japan Meteorological Agency
+        </div>
+
+        <div>
+            Open-Meteo
+        </div>
+
+    </div>
+
+</footer>
+
+
+<script src="script.js"></script>
 
 </body>
-
-</html>
